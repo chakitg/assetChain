@@ -9,7 +9,20 @@ const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoggedOut, setIsLoggedOut] = useState(true);
 
+      //Web monetization
+    useEffect(()=>{
+    const appPaymentPointer = "$ilp.uphold.com/YmrnAiDHZY3Y";
+    var metaTag = document.createElement("meta");
+    metaTag.setAttribute("name", "monetization");
+    metaTag.content = appPaymentPointer;
+    document.getElementsByTagName("head")[0].appendChild(metaTag);
+  }, []);
+
+
     useEffect(() => {
+    
+   
+        
     const onLoginSuccess = async(payload) => {
         setUserPayload(payload);
         setIsLoggedIn(true);
@@ -22,6 +35,8 @@ const Login = () => {
         apiKey: "8366dcdc-84f6-4394-921e-b45660f58531",
         onSuccess: onLoginSuccess,
     };
+
+   
     
     let sawo = new Sawo(sawoConfig);
     sawo.showForm();

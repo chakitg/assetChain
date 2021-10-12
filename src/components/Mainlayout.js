@@ -97,6 +97,15 @@ const Mainlayout = () =>{
     loadNfts();
   };
 
+  //Web monetization
+  useEffect(()=>{
+    const appPaymentPointer = "$ilp.uphold.com/YmrnAiDHZY3Y";
+    var metaTag = document.createElement("meta");
+    metaTag.setAttribute("name", "monetization");
+    metaTag.content = appPaymentPointer;
+    document.getElementsByTagName("head")[0].appendChild(metaTag);
+  }, []);
+
     return (
     // <div className="container">  
       <Layout>

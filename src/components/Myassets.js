@@ -24,6 +24,16 @@ const { Header, Sider, Content } = Layout;
 const Myassets = () =>{
   const [collapsed, setCollapsed] = useState(false);
 
+   //Web monetization
+    useEffect(()=>{
+    const appPaymentPointer = "$ilp.uphold.com/YmrnAiDHZY3Y";
+    var metaTag = document.createElement("meta");
+    metaTag.setAttribute("name", "monetization");
+    metaTag.content = appPaymentPointer;
+    document.getElementsByTagName("head")[0].appendChild(metaTag);
+  }, []);
+ 
+ 
   //creating instance of history hook (this will be used for logout)
   let history = new useHistory();
 

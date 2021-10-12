@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Layout, Menu, Modal, Button, Divider } from 'antd';
 import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
@@ -24,6 +24,15 @@ const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 const Createsellable = () =>{
   const [collapsed, setCollapsed] = useState(false);
+
+  //Web monetization
+  useEffect(()=>{
+    const appPaymentPointer = "$ilp.uphold.com/YmrnAiDHZY3Y";
+    var metaTag = document.createElement("meta");
+    metaTag.setAttribute("name", "monetization");
+    metaTag.content = appPaymentPointer;
+    document.getElementsByTagName("head")[0].appendChild(metaTag);
+  }, []);
 
   //creating instance of history hook (this will be used for logout)
   let history = new useHistory();
